@@ -1,6 +1,11 @@
+/*
+https://crypto.stanford.edu/pbc/notes/elliptic/
+https://andrea.corbellini.name/ecc/interactive/modk-mul.html
+
+Y^2 + a1 * X * Y + a3 * Y = X^3 + a2 * X^2 + a4 * X + a6 
+*/
 use num_bigint::BigInt;
 use num_traits::Zero;
-//use num_traits::One;
 
 #[derive(Debug, Clone)]
 struct Point {
@@ -124,14 +129,4 @@ fn main() {
     if ec.test(&pt_n.clone().unwrap()) {
         println!("{:?}", pt_n.unwrap());
     }
-    
-   /*
-    loop {
-        if !ec.test(&pt) {
-            break;
-        }
-        println!("{:?}", pt);
-        pt = ec.double_point(&pt);
-    }
-    */
 }
