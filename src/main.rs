@@ -110,10 +110,10 @@ impl EC {
 
 fn main() {
     let pt = Point {
-        x: BigInt::from(125),
-        y: BigInt::from(18),
+        x: BigInt::from(509),
+        y: BigInt::from(2),
     };
-    let a = BigInt::from(301);
+    let a = BigInt::from(27);
     let b = &pt.y * &pt.y - &pt.x * &pt.x * &pt.x - &a * &pt.x;
 
     let ec = EC {
@@ -122,10 +122,10 @@ fn main() {
         a3: BigInt::from(0),
         a4: a,
         a6: b,
-        p: BigInt::from(829),
+        p: BigInt::from(2381),
     };
 
-    let pt_n = ec.power_point(&pt, 633 as u32);
+    let pt_n = ec.power_point(&pt, 700 as u32);
     if ec.test(&pt_n.clone().unwrap()) {
         println!("{:?}", pt_n.unwrap());
     }
